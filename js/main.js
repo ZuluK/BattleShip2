@@ -198,3 +198,89 @@ if(element) {
 if(1){//Only the number 0 is falsy, all others are truthy
   //gonna happen
 }
+
+
+/* Time for a quick lie detector test.
+Figure out how many lies the perp tells, and whether the perp is guilty as charged, by determining which values are truthy
+and which values are falsey. Check your answer at the end of the chapter before you go on.
+
+*/
+
+
+function lieDetectorTest (){
+  var lies = 0;
+
+  var stolenDiamond = { };
+  if (stolenDiamond){
+    console.log("You stole the diamond");
+    lies++;
+  }
+ //this is truthy
+
+var car = {
+  keysInPocket: null
+};
+if (car.keysInPocket){
+  console.log("Uh Oh, guess you stole the car!");
+  lies++;
+}//this is falsey because of the null
+
+if(car.emptyGasTank){
+  console.log("You drove the car after you stole it"){
+    lies++;
+  }
+}//falsey because 'car.emptyGasTank' hasnt'been defined
+
+var foundYouAtTheCrimeScene = [];
+if (foundYouAtTheCrimeScene) {
+  console.log("A sure sign of guilt");
+  lies++;
+}//this is truthy
+
+if (foundYouAtTheCrimeScene[0]){
+  console.log("Caught with a stolen item!");
+  lies++;
+}//There is no item in the array, so the array item at 0 is undefined, which is falsey
+
+var yourName = " ";//A string with one space;
+if (yourName){
+  console.log("Guess you lied about your name");
+  lies++;
+}//empty string is a falesy
+return lies;
+}
+var numberOfLies = lieDetectorTest();
+console.log("You told" + numberOfLies + " lies!");
+if(numberOfLies >= 3){
+  console.log("Guilty as charged");
+}
+
+
+/* Review */
+
+
+/*
+
+1. There are two groups of types in JavaScript: primitives and objects.
+   Any value that isn’t a primitive type is an object.
+
+2.The primitives are: numbers, strings, booleans, null and undefined. Everything else is an object.
+
+3.undefined means that a variable (or property or array item) hasn’t yet been initialized to a value.
+
+4.null means “no object”.
+
+5.“NaN” stands for “Not a Number”, although a better way to think of NaN is as a number that can’t be represented in JavaScript.
+The type of NaN is number.
+
+6.NaN never equals any other value, including itself, so to test for NaN use the function isNaN.
+
+7.JavaScript has  ve falsey values: unde ned, null, 0, “” (the empty string) and false.
+All other values are truthy.
+
+8.Strings sometimes behave like objects.
+If you use a property or method on a primitive string,
+JavaScript will convert the string to an object temporarily, use the property, and then convert it back to a primitive string.
+This happens behind the scenes so you don’t have to think about it.
+
+9.Two objects are equal only if the variables containing the object references point to the same object.
