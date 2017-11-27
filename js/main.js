@@ -284,3 +284,23 @@ JavaScript will convert the string to an object temporarily, use the property, a
 This happens behind the scenes so you don’t have to think about it.
 
 9.Two objects are equal only if the variables containing the object references point to the same object.
+
+
+*/
+
+
+/* instanceOf */
+
+function Duck(sound){//How strange. Doesn't this look a bit like a mix of a function and an object?
+  this.sound = sound;
+  this.quack = function (){
+    console.log((this.song))
+  }
+}
+
+var toy = new Duck ("quack quack");//creates a new object stored in a variable
+
+toy.quack();
+
+console.log(typeof toy);//type is an object
+console.log(toy instanceof Duck);//true
